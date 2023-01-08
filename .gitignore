@@ -1,0 +1,10 @@
+
+.devcontainer/
+build/
+trace/
+examples/
+release/
+
+sdkconfig.defaults
+sdkconfig.old
+debug.log
