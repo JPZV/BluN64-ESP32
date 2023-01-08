@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../n64-switch"
+		},
+		{
+			"path": "../n64-blueretro"
+		},
+		{
+			"path": "../n64-sdk"
+		}
+	],
+	"settings":
+	{
+		"idf.portWin": "COM6",
+		"idf.adapterTargetName": "esp32",
+		"idf.flashType": "UART",
+		"files.associations": {
+			"task.h": "c",
+			"cmath": "cpp",
+			"*.tcc": "c",
+			"ostream": "c",
+			"n64-pad.h": "c",
+			"esp_system.h": "c",
+			"blucontrol_mode.h": "c",
+			"freertos.h": "c"
+		}
+	}
+}
