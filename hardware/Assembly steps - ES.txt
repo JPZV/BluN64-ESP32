@@ -1,0 +1,30 @@
+1) Desarmar el control y llegar hasta la placa madre
+2) sacar todas las gomas
+3) desoldar todos los componentes excepto los botones, el conector del joystick, y el capacitor C10 (arriba del conector del joystick). Comprobar que no queden puentes en el socket del chip. El C10 puede no existir en ciertos modelos.
+4) Aislar pines del antiguo Chip del control y debajo del GND izquierdo
+5) Soldar los componentes de los pines superiores (capacitor EN-GND, Regulador 3.3, conectores header)
+6) Unir los puntos de JP5
+7) Agregar estaño a los puntos de soldadura y limpiar
+8) Pegar con cinta de doble cara el ESP32 en el lugar donde estaba el Chip Original, con la antena mirando a la izquierda
+9) Poner estaño a los conectores del ESP32
+10) Conectar la R10K entre 3V3 y EN y el Regulador
+11) Soldar la Resistencia al LED (GPIO16)
+12) Soldar GND al Shield o a alguna entrada de GND
+13) Conectar los GND comunes de los pines superiores
+14) Empezar a soldar los cables en sentido anti horario empezando desde GPIO00 (Pin 25)
+15) En la carcasa inferior, destruir el rectangulo
+16) Sacar el seguro del Controller Pak (Presionar el seguro, introducir un destornillador pequeño en un lado, empujar de adentro hacia afuera, introducir el destornillador al otro lado, y sacar el seguro de adentro hacia afuera)
+17) Seguir cortando hasta que entre bien la batería
+18) En la carcasa superior, hacer el hueco para el interruptor On/Off
+19) En la carcasa superior, hacer el hueco para el USB-C
+20) Soldar 5V y GND del USB-C con cables largos
+21) Pegar con Epoxy el USB-C y el Switch a la carcasa inferior
+22) Poner la luz LED de encencido conectado la resistencia (5K), al GND del USB-C, y al pin izquierdo del Switch
+23) Conectar la placa madre al Switch (V+) y al puerto USB-C (GND)
+24) Hacer las conexiones con el módulo de carga: USB-C V* a IN+, GND a IN-, Bateria a B+/B-, y Switch a Out+
+25) Limpiar bien la placa madre de cualquier resto de Flux
+26) Ordenar los cables
+27) Sacar el Joystick si es que no se hizo, y poner la placa con mucho cuidado sobre la carcasa superior. Se debe de deslizar suavemente sobre los oreficios
+28) Poner las gomas y los chips de los botones Z, L y R, pero sin poner los botones de plástico de L y R
+29) Pegar el seguro del Controller Pak si así lo desea
+30) Acomodar la batería en la carcasa inferior
