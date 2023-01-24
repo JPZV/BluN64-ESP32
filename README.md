@@ -12,9 +12,9 @@ The other way is to clone the project and building it yourself, thought this is 
 
 ## Pinout and schematics
 
-In the [Hardware](/hardware) directory, you can find some useful files for building your own controller. Sadly there is no tutorial about building steps by step except for a [Step-By-Step draft in spanish](/hardware/Assembly steps - ES.txt), but I added all the photos that I took while doing my own controller, so I hope it helps you.
+In the [Hardware](/hardware) directory, you can find some useful files for building your own controller. Sadly there is no tutorial about building steps by step except for a [Step-By-Step draft in spanish](/hardware/Assembly%20steps%20-%20ES.txt), but I added all the photos that I took while doing my own controller, so I hope it helps you.
 
-You can find also the Pinout for both the [ESP32](/hardware/ESP32 Pinout.png) and the [Gamepad itself](/hardware/GamePad Pinout.png). You zoom them a lot so do it if you cannot read something.
+You can find also the Pinout for both the [ESP32](/hardware/ESP32%20Pinout.png) and the [Gamepad itself](/hardware/GamePad%20Pinout.png). You zoom them a lot so do it if you cannot read something.
 
 Please note, you **have** to join the **JP5** mounting point (at the left of the controller). And, if your controller has a capacitor named **C10** above the joystick's connector, **don't** remove it. The rest of the components (resistors, IC, capacitors, jumpers, etc.) **must** be removed before connecting your ESP32.
 
@@ -47,7 +47,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Special thanks
 
 [dpedu.io](https://dpedu.io/article/2015-03-11/nintendo-64-joystick-pinout-arduino) for his blog about N64 analogs with Arduino
+
 [Jacques Gagnon (AKA Darthcloud)](https://github.com/darthcloud) for his help with BlueRetro
+
 [Yakara Colombia](https://github.com/yakaracolombia) for his support, contributions and ideas
 
 ## License
