@@ -39,3 +39,4 @@ examples/
 release/
 *.log
 sdkconfig.old
+*-backups/

@@ -1736,13 +1736,6 @@ CONFIG_WPA_MBEDTLS_TLS_CLIENT=y
 # end of Supplicant
 
 #
-# N64 SDK Configuration
-#
-CONFIG_N64_SECONDS_FOR_SWITCH_MODE=10
-CONFIG_N64_MODE_IDENTIFIER=1
-# end of N64 SDK Configuration
-
-#
 # BluControl SDK Configuration
 #
 CONFIG_BLUCONTROL_MODE_LENGTH=1
