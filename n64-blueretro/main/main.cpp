@@ -140,7 +140,6 @@ void app_loop(void *params)
             if (need_report)
                 bleGamepad.sendReport();
         }
-        blucontrol_handle_buttons();
     }
 }
 
@@ -148,7 +147,7 @@ extern "C" void app_main(void)
 {
     printf("BlueN64 Control Generic Mode. HEAP=%#010lx\n", esp_get_free_heap_size());
 
-    blucontrol_mode_init();
+    blucontrol_mode_init(false);
     n64_init();
 
     bleGamepadConfig.setAutoReport(false);
