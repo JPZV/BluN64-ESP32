@@ -1,6 +1,6 @@
 {
     "name": "BlueN64",
-    "version": "2023.01.0",
+    "version": "2023.01.1",
     "funding_url": "https://github.com/JPZV/BluN64-ESP32",
     "new_install_prompt_erase": false,
     "builds": [
@@ -8,7 +8,7 @@
         "chipFamily": "ESP32",
         "parts": [
           {
-            "path": "blue_n64.bin",
+            "path": "BluN64.bin",
             "offset": 0
           }
         ]
