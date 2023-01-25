@@ -1,0 +1,73 @@
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install ESP-IDF prerequisite
+      run: |
+        sudo add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu `lsb_release -sc` main universe restricted multiverse"
+        sudo apt-get update -y -qq
+        sudo apt-get install git wget flex bison gperf python3 python3-pip python3-setuptools cmake ninja-build ccache libffi-dev libssl-dev dfu-util
+    - name: Set python3 default
+      run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10 && alias pip=pip3
+    - name: Clone Repository
+      run: git clone --recursive git@github.com:JPZV/BluN64-ESP32.git .
+    - name: Download ESP-IDF
+      run: git clone --recursive --branch v5.0 https://github.com/espressif/esp-idf.git ./esp-idf
+    - name: Install ESP-IDF
+      working-directory: ./esp-idf
+      run: sh ./install.sh
+      env:
+        IDF_TOOLS_PATH : "/home/runner/work/BluN64-ESP32/BluN64-ESP32/tools"
+    - name: Preparing release Folder
+      run: |
+        mkdir tmp_files
+        mkdir release
+        mkdir release/update
+    - name: Build Switch Mode with ESP-IDF
+      working-directory: ./n64-switch
+      run: |
+        . ../esp-idf/export.sh
+        idf.py build
+        mv build/n64-control-switch.bin ../tmp_files/n64-control-switch.bin
+        mv build/ota_data_initial.bin ../tmp_files/ota_data_initial.bin
+        mv build/bootloader/bootloader.bin ../tmp_files/bootloader.bin
+        mv build/partition_table/partition-table.bin ../tmp_files/partition-table.bin
+      env:
+        IDF_TOOLS_PATH : "/home/runner/work/BluN64-ESP32/BluN64-ESP32/tools"
+    - name: Build BlueRetro Mode with ESP-IDF
+      working-directory: ./n64-blueretro
+      run: |
+        . ../esp-idf/export.sh
+        idf.py build
+        mv build/n64-control-blueretro.bin ../tmp_files/n64-control-blueretro.bin
+      env:
+        IDF_TOOLS_PATH : "/home/runner/work/BluN64-ESP32/BluN64-ESP32/tools"
+    - name: Merge ready-to-flash binary file
+      working-directory: ./tmp_files
+      run: |
+        . ../esp-idf/export.sh
+        esptool.py --chip esp32 merge_bin -o BluN64.bin \
+                                      0x1000 bootloader.bin \
+                                      0x8000 partition-table.bin \
+                                      0xd000 ota_data_initial.bin \
+                                      0x10000 n64-control-switch.bin \
+                                      0x110000 n64-control-blueretro.bin
+        mv BluN64.bin ../release/BluN64.bin
+      env:
+        IDF_TOOLS_PATH : "/home/runner/work/BluN64-ESP32/BluN64-ESP32/tools"
+    - name: Upload binary file
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: BluN64-ESP32
+        path: |
+          release/BluN64.bin
+        if-no-files-found: error
