@@ -19,7 +19,7 @@ jobs:
     - name: Set python3 default
       run: sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10 && alias pip=pip3
     - name: Clone Repository
-      run: git clone --recursive git@github.com:JPZV/BluN64-ESP32.git .
+      run: git clone --recursive https://github.com/JPZV/BluN64-ESP32.git .
     - name: Download ESP-IDF
       run: git clone --recursive --branch v5.0 https://github.com/espressif/esp-idf.git ./esp-idf
     - name: Install ESP-IDF
