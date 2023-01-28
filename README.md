@@ -16,13 +16,13 @@ In the [Hardware](/hardware) directory, you can find some useful files for build
 
 You can find also the Pinout for both the [ESP32](/hardware/ESP32%20Pinout.png) and the [Gamepad itself](/hardware/GamePad%20Pinout.png). You zoom them a lot so do it if you cannot read something.
 
-Please note, you **have** to join the **JP5** mounting point (at the left of the controller). And, if your controller has a capacitor named **C10** above the joystick's connector, **don't** remove it. The rest of the components (resistors, IC, capacitors, jumpers, etc.) **must** be removed before connecting your ESP32.
+Please note, you **have** to join the **JP5** mounting point (at the right of the controller). And, if your controller has a capacitor named **C10** above the joystick's connector, **don't** remove it. The rest of the components (resistors, IC, capacitors, jumpers, etc.) **must** be removed before connecting your ESP32.
 
 ## Using it
 
-After flashing it for the first time, the BluN64 will start in *Switch Mode*, this means that the control will try to connect to an already paired Nintendo Switch, or to a Nintendo Switch in pair mode (i.e. in "**Change Grip/Order**). If you want to change to *BlueRetro Mode*, you have to press **L, R and Start at the same time** for about five seconds until the Mode LED (**GPIO 16**) turns off. In *BlueRetro Mode*, the controller will be available for every type of device, including any console with a [BlueRetro](https://github.com/darthcloud/BlueRetro) on it, Android Device, Windows, etc. I'll work as a generic controller so everything should be working without any problem. To go back to *Switch Mode*, you have to do the same steps (**L + R + Start** for **5 seconds**)
+After flashing it for the first time, the BluN64 will start in *Switch Mode*, this means that the control will try to connect to an already paired Nintendo Switch, or to a Nintendo Switch in pair mode (i.e. in "**Change Grip/Order**"). If you want to change to *BlueRetro Mode*, you have to press **L, R and Start at the same time** for about five seconds until the Mode LED (**GPIO 16**) turns off. In *BlueRetro Mode*, the controller will be available for every type of device, including any console with a [BlueRetro](https://github.com/darthcloud/BlueRetro) on it, Android Device, Windows, etc. It'll work as a generic controller so everything should be working without any problem. To go back to *Switch Mode*, you have to do the same steps (**L + R + Start** for **5 seconds**)
 
-You can switch between both modes on-the-fly, you don't have to shut down neither the controller nor the console for switching, and every time you turn on the controller it'll start on the last mode used.
+You can switch between both modes on-the-fly, you don't have to shut down neither the controller nor the console for switching, and every time you turn on the controller it'll start on the latest mode used.
 
 In Nintendo Switch, to press the *Home Button* without a physical button wired to **GPIO 2**, you can press both **Start** and then **L** at the same time. The same thing applies to *ZR* (which can be optionally wired to **GPIO 4**), but this time with **Start** and **R**
 
@@ -30,7 +30,7 @@ In Nintendo Switch, to press the *Home Button* without a physical button wired t
 
 I'd recommend you to clone this repository using the GitHub Desktop app, otherwise, always remember to add `--recursive` to your `git clone` command. **Don't download this project as a ZIP**
 
-For building, I recommend you to build it using Visual Studio Code with the [Espressif IDF](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) extension and with ESP-IDF 5.0 or newer installed. Remember to open the project as a Workplace by going to `File -> Open Workspace from File -> ./vscode/BluN64-ESP32.code-workspace` on Visual Studio Code. You have to build both the n64-switch and n64-blueretro projects, one at the time, then, you have to flash them manually to your ESP32 using **ESP Flash Tool** with the following parameters
+For building, I recommend you to build it using Visual Studio Code with the [Espressif IDF](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) extension and with ESP-IDF 5.0 or newer installed. Remember to open the project as a Workplace by going to `File -> Open Workspace from File -> ./.vscode/BluN64-ESP32.code-workspace` on Visual Studio Code. You have to build both the n64-switch and n64-blueretro projects, one at the time, then, you have to flash them manually to your ESP32 using **ESP Flash Tool** with the following parameters
 
 ```
 n64-switch/build/bootloader/bootloader.bin @ 0x1000
@@ -54,4 +54,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-This project uses [GPL-3.0 license](/LICENSE). This means that you can modify and distribute it, but you **must** to make your source code available publicly for everyone without any restriction and under to the same license.
+This project uses [GPL-3.0 license](/LICENSE). This means that you can modify and distribute it, but you **must** to make your source code available publicly for everyone without any restriction and under the same license.
