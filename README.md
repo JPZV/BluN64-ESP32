@@ -48,7 +48,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 [dpedu.io](https://dpedu.io/article/2015-03-11/nintendo-64-joystick-pinout-arduino) for his blog about N64 analogs with Arduino
 
-[Jacques Gagnon (AKA Darthcloud)](https://github.com/darthcloud) for his help with BlueRetro
+[Jacques Gagnon (AKA Darthcloud)](https://github.com/darthcloud) for his help with [BlueRetro](https://github.com/darthcloud/BlueRetro/) ([License](https://github.com/darthcloud/BlueRetro/blob/master/LICENSE))
+
+[Mitch Cairns (From Hand Held Legend)](https://github.com/mitchellcairns) for his help with [HOJA](https://github.com/HandHeldLegend/HOJA-LIB-ESP32) ([License](https://github.com/HandHeldLegend/HOJA-LIB-ESP32/blob/main/LICENSE.md))
 
 [Yakara Colombia](https://github.com/yakaracolombia) for his support, contributions and ideas
 
