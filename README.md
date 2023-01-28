@@ -56,4 +56,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-This project uses [GPL-3.0 license](/LICENSE). This means that you can modify and distribute it, but you **must** to make your source code available publicly for everyone without any restriction and under to the same license.
+This project uses [Creative Commons BY-NC-SA 4.0 license](/LICENSE). This means that you can modify and distribute it in a non-commercial way, but you **must** credit the original project and under the same license. You can read more about that in [Create Commons website](https://creativecommons.org/licenses/by-nc-sa/4.0/)
