@@ -18,6 +18,8 @@ You can find also the Pinout for both the [ESP32](/hardware/ESP32%20Pinout.png) 
 
 Please note, you **have** to join the **JP5** mounting point (at the right of the controller). And, if your controller has a capacitor named **C10** above the joystick's connector, **don't** remove it. The rest of the components (resistors, IC, capacitors, jumpers, etc.) **must** be removed before connecting your ESP32.
 
+Also, if you speak Spanish, you can follow [MundoYakara's video](https://youtu.be/PrA_Gp_z_Fw) where he builds a N64 controller with this project. Just keep in mind that he uses **another pinout which is NOT compatible with the binaries from this repository**. This means that you'll need to flash with his binaries which may not be up to date. Another workaround would be to use his video as a walkthrough but using the pinout from this repository.
+
 ## Using it
 
 After flashing it for the first time, the BluN64 will start in *Switch Mode*, this means that the control will try to connect to an already paired Nintendo Switch, or to a Nintendo Switch in pair mode (i.e. in "**Change Grip/Order**"). If you want to change to *BlueRetro Mode*, you have to press **L, R and Start at the same time** for about five seconds until the Mode LED (**GPIO 16**) turns off. In *BlueRetro Mode*, the controller will be available for every type of device, including any console with a [BlueRetro](https://github.com/darthcloud/BlueRetro) on it, Android Device, Windows, etc. It'll work as a generic controller so everything should be working without any problem. To go back to *Switch Mode*, you have to do the same steps (**L + R + Start** for **5 seconds**)
