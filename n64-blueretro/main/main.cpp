@@ -1,27 +1,20 @@
 #include "main.h"
 
-BleGamepad bleGamepad("BlueN64 Gamepad", "JPZV");
+BleGamepad bleGamepad("BluN64 Gamepad", "JPZV");
 BleGamepadConfiguration bleGamepadConfig;
 
 TaskHandle_t loopTaskHandle = NULL;
 
-#define buttonsLength 9
+#define buttonsLength 6
 
 n64Button buttons[buttonsLength] =
 {
     {BUTTON_A_PIN,      BUTTON_1},
-    {BUTTON_B_PIN,      BUTTON_2},
+    {BUTTON_B_PIN,      BUTTON_4},
     {TRIGGER_L_PIN,     BUTTON_7},
     {TRIGGER_R_PIN,     BUTTON_8},
-    {C_DOWN_PIN,        BUTTON_5},
-    {C_LEFT_PIN,        BUTTON_4},
     {TRIGGER_Z_PIN,     BUTTON_9},
-    {TRIGGER_Z_PIN,     BUTTON_10},
-    {BUTTON_START_PIN,  BUTTON_6},
-};
-n64Button startButton = 
-{
-    BUTTON_START_PIN,  START_BUTTON
+    {BUTTON_START_PIN,  BUTTON_12},
 };
 
 int btn_x_axis = 0;
@@ -56,14 +49,6 @@ void app_loop(void *params)
                     need_report = true;
                 buttons[i].state = is_button_pressed;
             }
-
-            if ((is_button_pressed = !gpio_get_level(startButton.pinNumber)))
-                bleGamepad.pressSpecialButton(startButton.button);
-            else
-                bleGamepad.releaseSpecialButton(startButton.button);
-            if (startButton.state != is_button_pressed)
-                need_report = true;
-            startButton.state = is_button_pressed;
 
             if (!gpio_get_level(DPAD_UP_PIN))
                 btn_y_axis++;
@@ -151,7 +136,7 @@ extern "C" void app_main(void)
     n64_init();
 
     bleGamepadConfig.setAutoReport(false);
-    bleGamepadConfig.setButtonCount(10);
+    bleGamepadConfig.setButtonCount(12);
     bleGamepadConfig.setAxesMin(0x0000);
     bleGamepadConfig.setAxesMax(JOYSTICK_ABS_MAX * 2);
     bleGamepadConfig.setWhichSpecialButtons(true, false, false, false, false, false, false, false);
