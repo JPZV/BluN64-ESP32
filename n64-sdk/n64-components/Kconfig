@@ -1,0 +1,16 @@
+menu "BluN64 Configuration"
+
+    choice BLUN64_PINOUT_TYPE
+        prompt "Pinout type"
+        default BLUN64_PINOUT_TYPE_ORIGINAL
+        help
+            Select which pinout will you use. For reference, the original uses GPIO22 for Z, while Yakara's uses GPIO33
+
+        config BLUN64_PINOUT_TYPE_ORIGINAL
+            bool "Original"
+
+        config BLUN64_PINOUT_TYPE_YAKARA
+            bool "Yakara's"
+    endchoice
+
+endmenu
