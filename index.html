@@ -167,11 +167,12 @@
     }
 
     function setManifest() {
-      var sel = document.getElementById('ver');
-      var opt = sel.options[sel.selectedIndex];
-      var m = opt.dataset.manifest;
-      document.getElementById('installer').setAttribute('manifest', m);
+        var sel = document.getElementById('ver');
+        var opt = sel.options[sel.selectedIndex];
+        var m = opt.dataset.manifest;
+        document.getElementById('installer').setAttribute('manifest', m);
     }
+    setManifest();
     
     function showSerialHelp()
     {
