@@ -37,6 +37,9 @@ jobs:
       run: |
         . ../esp-idf/export.sh
         sed -i 's/CONFIG_BLUN64_PINOUT_TYPE_ORIGINAL/CONFIG_BLUN64_PINOUT_TYPE_YAKARA/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_MODE1_LED_GPIO=16/CONFIG_BLUCONTROL_MODE1_LED_GPIO=4/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_SWITCH_BUTTON2_GPIO=21/CONFIG_BLUCONTROL_SWITCH_BUTTON2_GPIO=32/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_SWITCH_BUTTON3_GPIO=18/CONFIG_BLUCONTROL_SWITCH_BUTTON3_GPIO=35/g' sdkconfig
         idf.py build
         mv build/n64-control-switch.bin ../tmp_files/n64-control-switch.bin
         mv build/ota_data_initial.bin ../tmp_files/ota_data_initial.bin
@@ -49,6 +52,9 @@ jobs:
       run: |
         . ../esp-idf/export.sh
         sed -i 's/CONFIG_BLUN64_PINOUT_TYPE_ORIGINAL/CONFIG_BLUN64_PINOUT_TYPE_YAKARA/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_MODE1_LED_GPIO=16/CONFIG_BLUCONTROL_MODE1_LED_GPIO=4/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_SWITCH_BUTTON2_GPIO=21/CONFIG_BLUCONTROL_SWITCH_BUTTON2_GPIO=32/g' sdkconfig
+        sed -i 's/CONFIG_BLUCONTROL_SWITCH_BUTTON3_GPIO=18/CONFIG_BLUCONTROL_SWITCH_BUTTON3_GPIO=35/g' sdkconfig
         idf.py build
         mv build/n64-control-blueretro.bin ../tmp_files/n64-control-blueretro.bin
       env:
