@@ -1,0 +1,17 @@
+{
+    "name": "BlueN64",
+    "version": "2023.07.1",
+    "funding_url": "https://github.com/JPZV/BluN64-ESP32",
+    "new_install_prompt_erase": false,
+    "builds": [
+      {
+        "chipFamily": "ESP32",
+        "parts": [
+          {
+            "path": "BluN64_Yakara.bin",
+            "offset": 0
+          }
+        ]
+      }
+    ]
+  }
