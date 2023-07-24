@@ -69,10 +69,10 @@
     #define C_RIGHT_PIN         GPIO_NUM_14
 
     // Joystick
-    #define JOYSTICK_X_INT_PIN  GPIO_NUM_5
-    #define JOYSTICK_X_Q_PIN    GPIO_NUM_17
-    #define JOYSTICK_Y_INT_PIN  GPIO_NUM_2
-    #define JOYSTICK_Y_Q_PIN    GPIO_NUM_16
+    #define JOYSTICK_X_INT_PIN  GPIO_NUM_17
+    #define JOYSTICK_X_Q_PIN    GPIO_NUM_5
+    #define JOYSTICK_Y_INT_PIN  GPIO_NUM_16
+    #define JOYSTICK_Y_Q_PIN    GPIO_NUM_2
 
     // LEDs
     #define LED_MODE_PIN        GPIO_NUM_4
