@@ -72,8 +72,23 @@ void event_task(hoja_event_type_t type, uint8_t evt, uint8_t param)
 void stick_task(hoja_analog_data_s* analog_data)
 {
     // Joystick
-    analog_data->ls_x = (n64_get_joystick_x() + JOYSTICK_MAX_X) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_X;
-    analog_data->ls_y = (n64_get_joystick_y() + JOYSTICK_MAX_Y) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_Y;
+    int x_data = n64_get_joystick_x();
+    int y_data = n64_get_joystick_y();
+	
+    // Next two if statement sets a deadzone to avoid phantom readings when x and y values are within the range +-10
+    if (abs(x_data) <= 10)
+    {
+        x_data = 0;
+    }
+    
+    if (abs(y_data) <= 10)
+    {
+        y_data = 0;
+    }
+    
+    analog_data->ls_x = (x_data + JOYSTICK_MAX_X) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_X;
+    analog_data->ls_y = (y_data + JOYSTICK_MAX_Y) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_Y;
+
     return;
 }
 
