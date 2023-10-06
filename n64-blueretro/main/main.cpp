@@ -110,8 +110,23 @@ void app_loop(void *params)
             if (!gpio_get_level(C_RIGHT_PIN))
                 btn_x_axis = 1;
 
-            bleGamepad.setAxes(((x_axis = n64_get_joystick_x()) + JOYSTICK_MAX_X) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_X,
-                               ((y_axis = -n64_get_joystick_y()) + JOYSTICK_MAX_Y) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_Y,
+            // Joystick
+            x_axis = n64_get_joystick_x();
+            y_axis = -n64_get_joystick_y();
+            
+            // Next two if statement sets a deadzone to avoid phantom readings when x and y values are within the range +-10
+            if (abs(x_axis) <= 10)
+            {
+                x_axis = 0;
+            }
+            
+            if (abs(y_axis) <= 10)
+            {
+                y_axis = 0;
+            }
+
+            bleGamepad.setAxes((x_axis + JOYSTICK_MAX_X) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_X,
+                               (y_axis + JOYSTICK_MAX_Y) * JOYSTICK_ABS_MAX / JOYSTICK_MAX_Y,
                                0, 0,
                                (btn_x_axis + 1) * JOYSTICK_ABS_MAX,
                                (btn_y_axis + 1) * JOYSTICK_ABS_MAX);
