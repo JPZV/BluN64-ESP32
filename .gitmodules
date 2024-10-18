@@ -6,7 +6,7 @@
 	url = https://github.com/JPZV/ESP32-BLE-Gamepad-idf
 [submodule "n64-switch/components/Blue-N64-Control-ESP32"]
 	path = n64-switch/components/HOJA-LIB-ESP32
-	url = https://github.com/JPZV/Blue-N64-Control-ESP32
+	url = https://github.com/JPZV/HOJA-LIB-ESP32
 	branch = prev_version
 [submodule "n64-switch/components/BluControl-SDK-ESP32"]
 	path = n64-switch/components/BluControl-SDK-ESP32
